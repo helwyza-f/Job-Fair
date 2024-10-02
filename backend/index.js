@@ -26,7 +26,7 @@ app.use(cors(corsOptions));
 const PORT = 3000;
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send(`${process.env.SECRET_KEY}`);
 });
 
 app.get("/token", (req, res) => {
