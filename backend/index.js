@@ -16,12 +16,27 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-const corsOptions = {
-  origin: "https://helwyza-jobfair.netlify.app",
-  credentials: true,
-};
 
-app.use(cors(corsOptions));
+// Pengaturan CORS manual
+app.use((req, res, next) => {
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://helwyza-jobfair.netlify.app"
+  );
+  res.header("Access-Control-Allow-Credentials", "true"); // Izinkan cookies
+  res.header("Access-Control-Allow-Methods", "GET,HEAD,PUT,PATCH,POST,DELETE"); // Metode yang diizinkan
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  ); // Header yang diizinkan
+  next();
+});
+
+// const corsOptions = {
+//   origin: "https://helwyza-jobfair.netlify.app",
+//   credentials: true,
+// };
+// app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 3000;
 
