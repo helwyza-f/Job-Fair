@@ -1,10 +1,8 @@
 import { MongoClient } from "mongodb";
+import dotenv from "dotenv";
 
-const client = new MongoClient(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  retryWrites: false,
-});
+dotenv.config();
+const client = new MongoClient(process.env.MONGO_URI);
 
 export const connectDB = async () => {
   try {
