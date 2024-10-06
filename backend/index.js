@@ -18,10 +18,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 const corsOptions = {
-  origin: "https://helwyza-jobfair.netlify.app",
+  origin: "https://job-fair-client.vercel.app/",
   credentials: true,
 };
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 3000;
 
@@ -31,15 +31,15 @@ app.get("/", (req, res) => {
     success: true,
   });
 });
-app.use((req, res, next) => {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://helwyza-jobfair.netlify.app"
-  ); // Ganti dengan URL front-end Anda
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header(
+//     "Access-Control-Allow-Origin",
+//     "https://helwyza-jobfair.netlify.app"
+//   ); // Ganti dengan URL front-end Anda
+//   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+//   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+//   next();
+// });
 
 // api's
 app.use("/api/v1/user", userRoute);
