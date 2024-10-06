@@ -1,4 +1,4 @@
-import db from "../utils/db";
+import db from "../utils/db.js";
 
 // admin post krega job
 export const postJob = async (req, res) => {
