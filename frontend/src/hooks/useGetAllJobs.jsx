@@ -10,7 +10,7 @@ const useGetAllJobs = () => {
   useEffect(() => {
     const fetchAllJobs = async () => {
       try {
-        const res = await fetch(
+        const res = await axios.get(
           `${JOB_API_END_POINT}/get?keyword=${searchedQuery}`,
           { withCredentials: true }
         );
