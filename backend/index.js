@@ -17,32 +17,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// Pengaturan CORS manual
-app.use((req, res, next) => {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://helwyza-jobfair.netlify.app"
-  );
-  res.header("Access-Control-Allow-Credentials", "true"); // Izinkan cookies
-  res.header("Access-Control-Allow-Methods", "GET,HEAD,PUT,PATCH,POST,DELETE"); // Metode yang diizinkan
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-  ); // Header yang diizinkan
-  next();
-});
-
-// const corsOptions = {
-//   origin: "https://helwyza-jobfair.netlify.app",
-//   credentials: true,
-// };
-// app.use(cors(corsOptions));
+const corsOptions = {
+  origin: "http://localhost:5173",
+  credentials: true,
+};
+app.use(cors());
 
 const PORT = process.env.PORT || 3000;
 
 app.get("/", (req, res) => {
-  return res.status(201).json({
-    message: "Account created successfully.",
+  return res.status(200).json({
+    message: "Server is running",
     success: true,
   });
 });
