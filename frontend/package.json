@@ -3,6 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "proxy": "https://helwyza-job-fair.vercel.app",
+  "homepage": "https://helwyza-job-fair.vercel.app",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
