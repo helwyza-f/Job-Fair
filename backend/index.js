@@ -24,7 +24,7 @@ app.use(
     credentials: true, // Izinkan pengiriman cookie atau authorization header jika diperlukan
   })
 );
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 3000;
 
