@@ -1,4 +1,4 @@
-// import { Job } from "../models/job.model.js";
+import db from "../utils/db";
 
 // admin post krega job
 export const postJob = async (req, res) => {
@@ -127,7 +127,9 @@ export const getAllJobs = async (req, res) => {
         { description: { $regex: keyword, $options: "i" } },
       ],
     };
-    const jobs = await Job.find(query)
+    const collection = db.collection("jobs");
+    const jobs = await collection
+      .find(query)
       .populate({
         path: "company",
       })
